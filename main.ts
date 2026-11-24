@@ -7,7 +7,7 @@ const T: Record<number, number[]> = {
   0x17: [0, 1, 1], 0x1b: [0, 1, 1], 0x30: [2, 0, 0], 0x31: [2, 1, 0], 0x32: [2, 1, 0], 0x33: [2, 0, 0],
   0x34: [0, 0, 0], 0x40: [0, 1, 1], 0x41: [0, 2, 0], 0x50: [0, 1, 0], 0x51: [0, 1, 0], 0x52: [0, 0, 1], 0x53: [0, 1, 0],
 };
-for (let o = 0x10; o < 0x23; o++) if (o < 0x17 || (o > 0x17 && o < 0x1b) || (o > 0x1b && o < 0x1f) || o > 0x1f) T[o] = [0, 2, 1];
+for (let o = 0x10; o < 0x23; o++) if (!T[o] && o !== 0x1f) T[o] = [0, 2, 1];
 
 function run(p: Uint8Array, inp: Uint8Array): [Uint8Array, number] {
   const n = p.length;
